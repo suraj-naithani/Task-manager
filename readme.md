@@ -13,42 +13,44 @@ fastapi_project/
 
 ## 🚀 Setup Instructions
 
-### 1. Clone the Repository
+### Step 1: Create a Project Folder
 ```bash
-git clone https://github.com/your-username/fastapi_project.git
+mkdir fastapi_project
 cd fastapi_project
 ```
 
-### 2. Create a Virtual Environment
+### 🛠 Step 2: Create a Virtual Environment
 
-**Windows**
+A virtual environment keeps your dependencies isolated.
+
+**For Windows:**
 ```bash
 python -m venv venv
 ```
 
-**macOS/Linux**
+**For macOS/Linux:**
 ```bash
 python3 -m venv venv
 ```
 
-### 3. Activate the Virtual Environment
+### 🛠 Step 3: Activate the Virtual Environment
 
-**Windows (Command Prompt)**
+**Windows (Command Prompt):**
 ```bash
 venv\Scripts\activate
 ```
 
-**macOS/Linux**
+**macOS/Linux:**
 ```bash
 source venv/bin/activate
 ```
 
-### 4. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+👉 You should now see (venv) at the start of your terminal.
 
-**requirements.txt**
+### 🛠 Step 4: Create requirements.txt
+
+Create a file named requirements.txt inside the project folder with this content:
+
 ```
 fastapi
 uvicorn
@@ -57,7 +59,44 @@ psycopg2-binary
 pydantic
 ```
 
-### 5. Run the FastAPI App
+### 🛠 Step 5: Install Dependencies
+
+Run:
+
+```bash
+pip install -r requirements.txt
+```
+
+This will install:
+
+- **FastAPI** → Web framework
+- **Uvicorn** → ASGI server (to run FastAPI)
+- **SQLAlchemy** → ORM for database handling
+- **psycopg2-binary** → PostgreSQL driver
+- **Pydantic** → Data validation and settings management
+
+### 🛠 Step 6: Verify Installation
+
+Check installed packages:
+
+```bash
+pip list
+```
+
+Run a quick FastAPI test app (main.py):
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Hello, FastAPI is running!"}
+```
+
+Run the app:
+
 ```bash
 uvicorn main:app --reload
 ```
